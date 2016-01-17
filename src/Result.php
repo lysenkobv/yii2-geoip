@@ -44,6 +44,16 @@ class Result extends ResultBase {
         return $value;
     }
 
+    protected function getTimezone($data) {
+        $value = null;
+
+        if (isset($data['location']['time_zone'])) {
+            $value = $data['location']['time_zone'];
+        }
+
+        return $value;
+    }
+
     public function isDetected() {
         return ($this->location->lat !== null && $this->location->lng !== null);
     }
